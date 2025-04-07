@@ -15,6 +15,7 @@ jobs:
       - name: Run tests # 4th Step
         run: npm test
   deploy: # 2nd Job
+    needs: test # What "needs" do is: wait for the job that specify
     runs-on: ubuntu-latest
     steps:
       - name: Get code # 1st Step
