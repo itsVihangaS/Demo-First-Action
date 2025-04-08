@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Log in to AWS ECR
         run: |
@@ -21,11 +21,4 @@ jobs:
           docker push 881490135288.dkr.ecr.eu-north-1.amazonaws.com/user-service:latest
 
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy to Elastic Beanstalk
-        run: |
-          aws elasticbeanstalk update-environment --environment-name user-service-green --version-label v1.0.0
+  
